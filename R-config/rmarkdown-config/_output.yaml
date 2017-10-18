@@ -1,0 +1,10 @@
+html_notebook:
+    highlight: pygments
+    theme: flatly
+    toc: yes
+    toc_depth: 3
+    df_print: paged
+    toc_float:
+      collapsed: false
+    css: theme.css
+

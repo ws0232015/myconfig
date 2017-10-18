@@ -4,7 +4,7 @@
 
 去官网下载对应的anaconda(3.6-64bit)安装包。如果电脑储存空间有限，建议下载Miniconda。miniconda只会安装conda和基础Python包，像pandas和scikit-learn这些后面用到的话，直接一行命名安装`conda install pandas scikit-learn` 默认安装到当前环境，这个后面再详细记录说明。
 
-#### 配置包的下载镜像网点
+#### 1.1 配置包的下载镜像网点
 
 有用的命令: 
 
@@ -27,10 +27,20 @@ conda config --set show_channel_urls yes
 
 **注意：** 输完上面命令后，还需要到用户路径下找到`~/.condarc`文件，用`#`注释掉channels下面的`- defaults`
 
+#### 1.2 配置pip加速镜像
+
 可以把pip的下载方式pypi的镜像换成tuan的或者ustc的，参考对应的镜像网站上面的help。
 
 1. 中科大: <https://lug.ustc.edu.cn/wiki/mirrors/help/pypi>
-2. 清华: <https://mirrors.tuna.tsinghua.edu.cn/help/pypi/>
+2. 清华: <https://mirrors.tuna.tsinghua.edu.cn/help/pypi/> (推荐)
+
+Win10 创建: `~\AppData\Roaming\pip\pip.ini` 内容如下：
+
+```shell
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+format = columns
+```
 
 ### 2.更新与下载包
 
@@ -42,7 +52,7 @@ conda install pandas
 conda install scikit-learn
 conda install jupyter #  下载jupyter notebook
 ```
-更多命名请见conda cheetsheet
+更多命令请见conda cheetsheet
 
 ### 3.不同环境的配置
 
@@ -69,7 +79,7 @@ R配置方法请见：
 
 conda create -n py27 python=2.7 ipykernel pandas scikit-learn 
 source activate py27               # 激活环境
-python -m ipykernel install --user # 配置kernel
+python -m ipykernel install --user --name myenv --display-name "root" # 配置kernel
 ```
 
 ```shell
